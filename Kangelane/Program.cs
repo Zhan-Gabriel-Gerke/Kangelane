@@ -73,8 +73,7 @@ class SuperKangelane : Kangelane
     public void SuperKangelaneOsavus()
     {
         Random rnd = new Random();
-        double osavus = Math.Round(rnd.NextDouble() * (5.0 - 1.0) + 1.0, 2);
-        //return osavus;
+        osavus = Math.Round(rnd.NextDouble() * (5.0 - 1.0) + 1.0, 2);
     }
     public SuperKangelane(string nimi, string asukoht) : base(nimi, asukoht)//base - вызывает конструктор базового класса Kangelane,
     {
@@ -83,8 +82,14 @@ class SuperKangelane : Kangelane
     public override int Paasta(int ohus)
     {
         //int osavus = (int)Math.Round(osavus);
-        double temp_var = ohus + osavus;
-        int pOhus = (int)Math.Round(ohus * temp_var / 100);
+        //double temp_var = ohus + osavus * 10;
+        //int pOhus = (int)Math.Round(ohus + temp_var/ 100);
+        //Console.WriteLine(ohus);
+        ohus = (int)Math.Round(ohus * 0.95);
+        //Console.WriteLine(ohus);
+        int osavusaa = (int)Math.Round(osavus * 10);
+        //Console.WriteLine(osavusaa);
+        int pOhus = (ohus + osavusaa);
         return pOhus;
     }
     public override string Vormiriietus()
@@ -146,7 +151,7 @@ class Program
             if (kangelane is SuperKangelane superkangelane)
             {
                 Console.WriteLine("Super");
-                Console.WriteLine("Päästetud (1000): " + superkangelane.Paasta(1000));
+                Console.WriteLine("Paasta: " + superkangelane.Paasta(1000));
                 Console.WriteLine(superkangelane.ToString());
                 Console.WriteLine("Vormiriietus: " + superkangelane.Vormiriietus());
                 Console.WriteLine("Tervitus: " + superkangelane.Tervitus());
@@ -155,7 +160,7 @@ class Program
             else
             {
                 Console.WriteLine("Tavaline");
-                Console.WriteLine("Päästetud (1000): " + kangelane.Paasta(1000));
+                Console.WriteLine("Paasta : " + kangelane.Paasta(1000));
                 Console.WriteLine(kangelane.ToString());
                 Console.WriteLine("Vormiriietus: " + kangelane.Vormiriietus());
                 Console.WriteLine("Tervitus: " + kangelane.Tervitus());
