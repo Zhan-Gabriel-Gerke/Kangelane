@@ -21,7 +21,7 @@ class Kangelane
         get { return asukoht; }
         set
         {
-            if (value == "Tallnn" || value == "Tartu" || value == "Narva")
+            if (value == "Tallnn" || value == "Tartu" || value == "Narva" || value == "Parnu")
                 asukoht = value;
         }
     }
